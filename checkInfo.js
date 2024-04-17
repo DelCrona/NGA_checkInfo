@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         NGA优化摸鱼体验插件-信息加强
-// @namespace    【YOUR_PLUGIN_URL】
+// @namespace    https://github.com/DelCrona/NGA_checkInfo
 // @version      1.0.0
 // @author       DelCrona
 // @description  尝试修复一下获取属地回复等信息(希望作者早日修复)
@@ -26,9 +26,9 @@
 (function (registerPlugin) {
     'use strict';
     registerPlugin({
-        name: '【YOUR_PLUGIN_UNIQUE_KEY】',  // 插件唯一KEY
-        title: '【YOUR_PLUGIN_TITLE】',  // 插件名称
-        desc: '【YOUR_PLUGIN_DESC】',  // 插件说明
+        name: 'checkInfo',  // 插件唯一KEY
+        title: '信息增强',  // 插件名称
+        desc: '修复查询端口被封的问题',  // 插件说明
         settings: [{
             key: 'textInput',
             title: '占位符',
@@ -53,7 +53,7 @@
 
         },
         renderThreadsFunc($el) {
-            
+
         },
         renderFormsFunc($el) {
             const uid = parseInt($el.find('[name="uid"]').text())
