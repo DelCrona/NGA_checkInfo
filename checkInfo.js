@@ -50,11 +50,10 @@
             console.log('主脚本引用库: ', this.mainScript.libs)
         },
         postProcFunc() {
-            console.log('已运行: postProcFunc()')
+
         },
         renderThreadsFunc($el) {
-            console.log('列表项 (JQuery) => ', $el)
-            console.log('列表项 (JS) => ', $el.get(0))
+            
         },
         renderFormsFunc($el) {
             const uid = parseInt($el.find('[name="uid"]').text())
