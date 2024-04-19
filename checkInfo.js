@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NGA优化摸鱼体验插件-信息加强
 // @namespace    https://github.com/DelCrona/NGA_checkInfo
-// @version      1.0.1
+// @version      1.0.2
 // @author       DelCrona
 // @description  尝试修复一下获取属地回复等信息(希望作者早日修复)
 // @license      MIT
@@ -56,8 +56,10 @@
 
         },
         renderFormsFunc($el) {
+            var _this = this;
             const uid = parseInt($el.find('[name="uid"]').text())
             var userInfo = null
+            //访问个人页获取uid和信息字符串
             $.ajax(`https://${window.location.host}/nuke.php?func=ucp&uid=${uid}`)
                 .then(html => {
                     var parser = new DOMParser();
@@ -76,17 +78,21 @@
                             // console.log(ipLoc);
                         }
                     })
+                    //调用覆盖函数
                     displayInfo(userInfo);
                     // console.log(html);
                 })
                 .catch(error => {
                     console.error('Fetch error:', error);
                 });
+            //覆盖本体属地信息
             function displayInfo(userInfo){
-                $el.find('.hld__user-location .hld__req-retry')
+                var flag = _this.mainScript.getModule('UserEnhance').getCountryFlag(userInfo.ipLoc);
+                $el.find('.hld__user-location > span').replaceWith(flag);
+                /*$el.find('.hld__user-location .hld__req-retry')
                     .text(`${userInfo.ipLoc}`)
                     .removeClass('hld__req-retry') // 移除旧样式
-                    .addClass('hld__replace'); // 添加新样式;
+                    .addClass('hld__replace'); // 添加新样式;*/
             }
         },
         renderAlwaysFunc() {
