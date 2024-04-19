@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NGA优化摸鱼体验插件-信息加强
 // @namespace    https://github.com/DelCrona/NGA_checkInfo
-// @version      1.0.0
+// @version      1.0.1
 // @author       DelCrona
 // @description  尝试修复一下获取属地回复等信息(希望作者早日修复)
 // @license      MIT
@@ -76,17 +76,17 @@
                             // console.log(ipLoc);
                         }
                     })
-                    displayInfo(uid, userInfo);
+                    displayInfo(userInfo);
                     // console.log(html);
                 })
                 .catch(error => {
                     console.error('Fetch error:', error);
                 });
-            function displayInfo(uid, userInfo){ 
-                const $userEnhanceContainer = $(`<div class="hld__user-enhance hld__user-enhance-${uid}"></div>`);
-                const $node = $el.find('.posterinfo div.stat .clickextend').siblings('div:first-child');
-                $node.after($userEnhanceContainer)
-                $userEnhanceContainer.append(`<div><span style="display: inline-flex;align-items: center;" class="hld__user-location">新增属地: <span class="numeric userval" name="regday">${userInfo.ipLoc}</span></span></div>`)
+            function displayInfo(userInfo){
+                $el.find('.hld__user-location .hld__req-retry')
+                    .text(`${userInfo.ipLoc}`)
+                    .removeClass('hld__req-retry') // 移除旧样式
+                    .addClass('hld__replace'); // 添加新样式;
             }
         },
         renderAlwaysFunc() {
