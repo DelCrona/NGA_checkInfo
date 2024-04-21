@@ -68,6 +68,9 @@
             $el.find('.hld__qbc').append('<button id=repair>1页主题回复</button>');
             //点击按钮执行
             $el.find('.hld__qbc > #repair').click(() => {
+                
+                var insert = this.$el.find('.postcontent > .checkInfo_record').length;
+                if(insert) return;
                 //给全局变量赋值，方便调用
                 this.$el = $el;
                 this.currentUserInfo = userInfo;
