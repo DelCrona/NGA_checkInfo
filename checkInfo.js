@@ -160,7 +160,7 @@
                     } finally {
 
                     }
-                }, 2400); //nga写的访问延迟是不是2001毫秒啊？死了妈了？2000刚好不行？
+                }, 3000); 
             } else {
                 if (this.queryTimer) {
                     clearInterval(this.queryTimer)
