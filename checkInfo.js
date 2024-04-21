@@ -116,7 +116,7 @@
                         //获取成分
                         if (scriptTags.length) {
                             scriptTags.forEach(element =>{
-                                console.log(element.textContent);
+                                //console.log(element.textContent);
                                 var content = element.textContent.trim();
                                 if (contentCount[content]) {    
                                     contentCount[content]++;
@@ -149,7 +149,7 @@
                         } 
                         else*/ 
                         if(this.pageInfo.reply.pages < 1){
-                            console.log(this.pageInfo.reply.pages + 1);
+                            //console.log(this.pageInfo.reply.pages + 1);
                             await _this.checkRecord(this.currentUserInfo.uid, 'reply', this.pageInfo.reply.pages + 1);
                             this.queryRecord('end');
                         }
@@ -191,7 +191,7 @@
                     replyJson[key] = (replyJson[key] || 0) + contentCount[key];
                 }) 
                 this.$el.find('.postcontent > .checkInfo_record').text(`${JSON.stringify(replyJson,null,2)}`)
-                console.log(replyJson);
+                //console.log(replyJson);
             }
         },
         //访问个人页获取uid和信息字符串
