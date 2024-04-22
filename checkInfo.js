@@ -40,9 +40,9 @@
         $el: null,
         pageInfo: {},
         beforeSaveSettingFunc(setting) {
-            console.log(setting)
+            //console.log(setting)
             // return 值则不会保存，并抛出错误
-            return '拦截'
+            //return '拦截'
         },
         preProcFunc() {
             console.log('已运行: preProcFunc()')
