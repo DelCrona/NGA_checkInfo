@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NGA优化摸鱼体验插件-信息加强
 // @namespace    https://github.com/DelCrona/NGA_checkInfo
-// @version      1.1.0
+// @version      1.1.1
 // @author       DelCrona
 // @description  修复属地显示，成分查询（仅1页）
 // @license      MIT
